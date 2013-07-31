@@ -1,3 +1,4 @@
-name: Your New Jekyll Site
+name: grschafer.com
 markdown: redcarpet
 pygments: true
+permalink: pretty

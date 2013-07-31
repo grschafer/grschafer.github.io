@@ -1,9 +1,17 @@
 ---
-layout: post
-title:  "Welcome to Jekyll!"
-date:   2013-07-29 16:12:01
-categories: jekyll update
+layout:     post
+title:      New Website!
+date:       2013-07-30 16:12:01
+categories: guides
 ---
+
+make a guide of things pythonistas will expect to find in ruby
+* general syntax (class, function, instances, inheritance/mixins, nil/None, etc.)
+* generators, list comprehensions, sets, dicts
+* string stuff
+* code organization, packages
+
+lots of code snippets!
 
 You'll find this post in your `_posts` directory - edit this post and re-build (or run with the `-w` switch) to see your changes!
 To add new posts, simply add a file in the `_posts` directory that follows the convention: YYYY-MM-DD-name-of-post.ext.
