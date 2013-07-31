@@ -1,4 +1,6 @@
-grschafer.github.io
-===================
+grschafer.com
+-------------
 
-Personal site
+Personal website and blog
+
+Theme from [orderedlist/minimal](https://github.com/orderedlist/minimal)
