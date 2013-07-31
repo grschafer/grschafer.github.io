@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      New Website!
-date:       2013-07-30 16:12:01
+date:       2013-07-31 15:00:00
 categories: thoughts
 ---
 
