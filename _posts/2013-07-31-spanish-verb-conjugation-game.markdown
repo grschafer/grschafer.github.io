@@ -41,6 +41,7 @@ categories: projects
     </object>
 </div>
 
+[![Singleplayer][thumb1]][img1] [![Multiplayer][thumb2]][img2] [![Victory][thumb3]][img3]
 
 *How to Play*
 
@@ -59,10 +60,6 @@ college -- upon learning that the teacher was still using the game to teach
 subjunctive conjugation -- and added other tenses, better collisions, and a
 variety of other small fixes.
 
-Note: The version embedded above only includes verbs starting with A through
-haber, due to my aversion to spending more time than I already have working
-around flash file limitations.
-
 *Tech*
 
 Flash + ActionScript 2.0
@@ -70,3 +67,18 @@ Flash + ActionScript 2.0
 *When*
 
 Spring 2008 and Summer 2013
+
+*Notes*
+
+* The version embedded above only includes verbs starting with A through
+haber, due to my aversion to spending more time than I already have working
+around flash file limitations.
+* Cringe at my use of Comic Sans! Bahahaha! ...sorry. =P
+
+
+[thumb1]: /assets/images/cohete_conjugador/1_thumb.png "Singleplayer"
+[thumb2]: /assets/images/cohete_conjugador/2_thumb.png "Multiplayer"
+[thumb3]: /assets/images/cohete_conjugador/3_thumb.png "Victory"
+[img1]: /assets/images/cohete_conjugador/1.png
+[img2]: /assets/images/cohete_conjugador/2.png
+[img3]: /assets/images/cohete_conjugador/3.png
