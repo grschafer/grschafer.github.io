@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Processing\x3a Perlin Landscape"
-date:       2013-08-01 13:00:00
+date:       2010-10-28 12:00:00
 categories: projects
 ---
 
@@ -30,10 +30,6 @@ running it in the Processing IDE.
 *Tech*
 
 [Processing][proc] with [controlP5][cp5] for UI elements
-
-*When*
-
-Fall 2010
 
 
 [thumb1]: /assets/images/perlin/1_thumb.png "Default settings"

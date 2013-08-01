@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Tetradrop Tetris Clone
-date:       2013-08-01 16:00:00
+date:       2011-08-11 12:00:00
 categories: projects
 ---
 
@@ -21,10 +21,6 @@ remake an old game in pygame and picked Tetris by chance.
 *Tech*
 
 Python with [pygame][pygame] for graphics and user input and [numpy][numpy]
-
-*When*
-
-Summer 2011
 
 
 [thumb1]: /assets/images/tetradrop/1_thumb.png "Early game"

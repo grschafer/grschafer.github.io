@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Omgpop Game Automation
-date:       2013-08-01 17:00:00
+date:       2012-01-16 12:00:00
 categories: projects
 ---
 
@@ -41,10 +41,6 @@ sending clicks
 * Letterblox - Python with [SendKeys][sendkeys] for sending keystrokes
 * Typow - [AutoHotkey][ahk] script that uses [ImageMagick][imgmagick] for
 screen grabbing and preprocessing, and [Tesseract][tess] to OCR the image
-
-*When*
-
-Winter Break 2011-12
 
 
 [svm]: http://scikit-learn.org/stable/modules/svm.html

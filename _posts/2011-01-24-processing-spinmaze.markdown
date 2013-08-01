@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Processing\x3a Spinmaze"
-date:       2013-08-01 14:00:00
+date:       2011-01-24 12:00:00
 categories: projects
 ---
 
@@ -32,10 +32,6 @@ maze and avoid enemies.
 
 [Processing][proc] with [fisica library][fisica] for physics, [controlP5][cp5]
 for UI elements, and [AILibrary][ailib] for A*
-
-*When*
-
-Winter 2010
 
 
 [thumb1]: /assets/images/spinmaze/1_thumb.png "Initial state"

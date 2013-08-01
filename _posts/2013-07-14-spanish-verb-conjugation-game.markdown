@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Spanish Verb Conjugation Game
-date:       2013-07-31 23:00:00
+date:       2013-07-14 23:00:00
 categories: projects
 ---
 
@@ -54,19 +54,15 @@ tense and form. Select tenses and one or two players from the options menu.
 *What*
 
 The final project of my high school Spanish 4 course was very open-ended, so I
-made a this game, which originally only supported subjunctive tenses and had
-wacky collision detection. I revisited this project during the summer after
-college -- upon learning that the teacher was still using the game to teach
-subjunctive conjugation -- and added other tenses, better collisions, and a
-variety of other small fixes.
+made this game in May 2008, which originally only supported subjunctive tenses
+and had wacky collision detection. I revisited this project during the summer
+after college -- upon learning that the teacher was still using the game to
+teach subjunctive conjugation -- and added other tenses, better collisions, and
+a variety of other small fixes.
 
 *Tech*
 
 Flash + ActionScript 2.0
-
-*When*
-
-Spring 2008 and Summer 2013
 
 *Notes*
 

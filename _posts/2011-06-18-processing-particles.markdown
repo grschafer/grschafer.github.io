@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Processing\x3a Particles"
-date:       2013-08-01 15:00:00
+date:       2011-06-18 12:00:00
 categories: projects
 ---
 
@@ -27,10 +27,6 @@ different ways.
 *Tech*
 
 [Processing][proc] with [fisica library][fisica] for physics
-
-*When*
-
-Spring 2011
 
 
 [thumb1]: /assets/images/particles/1_thumb.png "Molecule formed"
