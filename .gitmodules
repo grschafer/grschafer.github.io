@@ -3,4 +3,4 @@
 	url = https://github.com/orderedlist/minimal.git
 [submodule "assets/projects/cohete_conjugador"]
 	path = assets/projects/cohete_conjugador
-	url = git@github.com:grschafer/cohete_conjugador.git
+	url = https://github.com/grschafer/cohete_conjugador.git
