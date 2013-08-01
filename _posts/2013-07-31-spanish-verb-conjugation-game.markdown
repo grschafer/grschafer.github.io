@@ -79,6 +79,6 @@ around flash file limitations.
 [thumb1]: /assets/images/cohete_conjugador/1_thumb.png "Singleplayer"
 [thumb2]: /assets/images/cohete_conjugador/2_thumb.png "Multiplayer"
 [thumb3]: /assets/images/cohete_conjugador/3_thumb.png "Victory"
-[img1]: /assets/images/cohete_conjugador/1.png
-[img2]: /assets/images/cohete_conjugador/2.png
-[img3]: /assets/images/cohete_conjugador/3.png
+[img1]: /assets/images/cohete_conjugador/singleplayer.png
+[img2]: /assets/images/cohete_conjugador/multiplayer.png
+[img3]: /assets/images/cohete_conjugador/victory.png
