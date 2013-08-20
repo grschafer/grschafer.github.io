@@ -29,6 +29,7 @@ puts "Hello, World!"
 print "Hello, World!"
 ```
 
+
 ### How to Explore
 
 To run a [REPL][repl] from the command line:
@@ -59,6 +60,7 @@ irb -I . -r file.rb
 ```bash
 python -i file.py
 ```
+
 
 ### Printing and String Interpolation
 
@@ -96,6 +98,7 @@ print "value of a: {0}".format(a)
 # value of a: test
 ```
 
+
 ### Nothing and Truthiness
 
 Testing nothing (represented by nil in Ruby and None in Python):
@@ -122,6 +125,7 @@ None
 []
 ```
 
+
 ### Boolean Expressions
 
 The potential gotcha in this category is that Ruby's `and` and `or` operators have very low precedence and thus are [generally reserved for control flow][rubyandor]. For boolean expressions in Ruby, use && and ||.
@@ -141,9 +145,11 @@ False and True # False
 True or False # True
 ```
 
+
 ### Arrays/Lists
 
 An ordered, integer-indexed collection is called an `Array` in Ruby and a `list` in Python.
+
 
 #### Instantiation
 
@@ -163,6 +169,7 @@ c = list()
 d = list([1,2,3])
 e = list(range(5))
 ```
+
 
 #### Operations
 
@@ -204,6 +211,7 @@ len(a) # 2
 b.index(3) # 0
 b.count(3) # 2
 ```
+
 
 #### Slicing
 
@@ -249,9 +257,11 @@ vals[:2] # [a,b]
 
 Note: For list comprehensions and iterating, see [Blocks](#blocks).
 
+
 ### Hashes/Dicts
 
 A mapping from keys to values is called a Hash in Ruby and a dict in Python.
+
 
 #### Instantiation
 
@@ -272,6 +282,7 @@ c = dict()
 d = dict([['x',1],[2,2]])
 e = defaultdict(list) # from collections module
 ```
+
 
 #### Operations
 
@@ -300,6 +311,7 @@ a.values() # [2]
 a.items() # [('x',2)]
 ```
 
+
 ### Symbols
 
 A unique piece of Ruby that you quickly run into is symbols. Symbols are [kind of like immutable strings][symbols1] indicated by a prepended colon (e.g. :vehicle) that have performance advantages over regular, mutable strings in Ruby. Symbols are [typically used for naming things][symbols2] like hash keys and for referencing variables, method names, etc.
@@ -312,6 +324,7 @@ Some symbol operations:
 :foo == :foo # true
 :foo.object_id == :foo.object_id # true
 ```
+
 
 ### Control Flow
 
@@ -383,6 +396,7 @@ while True:
 ```
 
 There's a lot more that could be said here, about break/next, [case][case], [and/or][rubyandor], [redo and retry][reflow], [exception-handling][exceptions], and more.
+
 
 ### Methods/Functions
 
@@ -488,6 +502,7 @@ Only slightly related to methods/functions but worth mentioning: [the * (splat) 
 At last! Blocks are my favorite part of Ruby so far, because they are the closest thing to Python's comprehensions (my favorite part of Python) and generators and the best way to accomplish tasks such as map/reduce/filter.
 
 [Robert Sosinski covers blocks/procs/lambdas quite thoroughly][blockproc], so I'll keep my treatment to a summary and examples.
+
 
 #### Summary
 
@@ -617,6 +632,7 @@ method2 # "from method2"
 ```
 
 An [article by Dave Thomas shows how Procs and lambdas can be curried][curry].
+
 
 #### Examples
 
@@ -759,6 +775,7 @@ Person.get_count() # 2
 
 OOP concepts and tools extend far beyond this example, and I may cover topics such as inheritance, mixins, metaprogramming, modules, namespaces, and more in the future. I'll wrap up this post here though, as it is already longer than I anticipated!  =)
 
+
 ### Documentation
 
 [Another comparison of Ruby/Python on the Ruby site][rubyfrompython]
@@ -767,6 +784,12 @@ Where to find documentation:
 
 * Ruby: <http://www.ruby-doc.org/>
 * Python 2.7: <http://docs.python.org/2.7/>
+
+
+### Attribution
+
+Thanks to editors!
+
 
 I'll happily respond to any comments, corrections, or other responses on twitter, email, or GitHub!
 
