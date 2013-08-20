@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Ruby and Python by Example
-date:       2013-08-19 16:12:01
+date:       2013-08-20 16:12:01
 categories: guides
 ---
 
@@ -43,13 +43,12 @@ python
 I always like to see *what* I can do with various objects:
 
 ```ruby
-"hey".methods.sort
+"foo".methods.sort
 String.instance_methods.sort
-("hey".methods - Object.instance_methods).sort
+("foo".methods - Object.instance_methods).sort
 ```
 ```python
-dir("hey")
-dir([1,2,3])
+dir("foo")
 ```
 
 To load a file (of function/class definitions, for example) to play with in the REPL:
@@ -63,7 +62,7 @@ python -i file.py
 
 ### Printing and String Interpolation
 
-Printing values is useful for confirming expectations and debugging:
+Printing values is useful for confirming expectations and debugging. Ruby's .inspect is similar to Python's repr() in that they both return the string form of the object they are called with. Ruby's "p" function calls .inspect on its arguments.
 
 ```ruby
 a = "test"
@@ -71,13 +70,8 @@ puts a
 # test
 puts a.inspect
 # "test"
-p a # p calls inspect on its arguments
+p a # equivalent to above
 # "test"
-puts "value of a: %s" % a
-# value of a: test
-puts "value of a: #{a}" # string interpolation
-# value of a: test
-# any Ruby expression can be inside #{..}
 ```
 ```python
 a = "test"
@@ -85,17 +79,26 @@ print a
 # test
 print repr(a)
 # 'test'
+```
 
+String interpolation/formatting is used to put expression or variable values into a string:
 
-print "value of a: %s" % a # old style
+```ruby
+puts "value of a: %s" % a
 # value of a: test
-print "value of a: {0}".format(a) # new style
+puts "value of a: #{a}"
+# value of a: test
+```
+```python
+print "value of a: %s" % a
+# value of a: test
+print "value of a: {0}".format(a)
 # value of a: test
 ```
 
 ### Nothing and Truthiness
 
-Testing nothing (represented by `nil` in Ruby and `None` in Python):
+Testing nothing (represented by nil in Ruby and None in Python):
 
 ```ruby
 my_var.nil?
@@ -104,7 +107,7 @@ my_var.nil?
 my_var is None
 ```
 
-Values that evaluate as false (true/false values are lowercase in Ruby, capitalized in Python):
+True/false values are lowercase in Ruby and capitalized in Python. The following snippets contain the values that evaluate as false in each language:
 
 ```ruby
 false
@@ -121,15 +124,21 @@ None
 
 ### Boolean Expressions
 
-The potential gotcha in this category is that Ruby's `and` and `or` operators have very low precedence and thus are [generally reserved for control flow][rubyandor]. For boolean expressions, use `&&` and `||`:
+The potential gotcha in this category is that Ruby's `and` and `or` operators have very low precedence and thus are [generally reserved for control flow][rubyandor]. For boolean expressions in Ruby, use && and ||.
 
 ```ruby
-false && true # false (short-circuits)
-true || false # true (short-circuits)
+!false # true
+
+# these short-circuit:
+false && true # false
+true || false # true
 ```
 ```python
-False and True # False (short-circuits)
-True or False # True (short-circuits)
+not False # True
+
+# these short-circuit:
+False and True # False
+True or False # True
 ```
 
 ### Arrays/Lists
@@ -144,7 +153,7 @@ To make arrays/lists:
 a = []
 b = [1,2,3]
 c = Array.new
-d = Array[1,2,3] # same result as Array.new([1,2,3])
+d = Array[1,2,3]
 e = (1..5).to_a
 ```
 ```python
@@ -162,11 +171,18 @@ Some simple operations available on arrays:
 ```ruby
 a = [1,2]; b = [3,3]
 a.include?(1) # true
-a + b # [1,2,3,3] (same as a.concat(b))
-[a] * 2 # [[1,2],[1,2]] (shallow copies)
-a[0] # 1 (same as a.first)
-a[-1] # 2 (same as a.last)
-a.size # 2 (same as a.length and a.count)
+a + b # [1,2,3,3]
+
+# makes shallow copies:
+[a] * 2 # [[1,2],[1,2]]
+
+a[0] # 1
+a.first # 1
+a[-1] # 2
+a.last # 2
+a.size # 2
+a.length # 2
+a.count # 2
 b.index(3) # 0
 b.count(3) # 2
 ```
@@ -174,68 +190,68 @@ b.count(3) # 2
 a = [1,2]; b = [3,3]
 1 in a # True
 a + b # [1,2,3,3]
-[a] * 2 # [[1,2],[1,2]] (shallow copies)
+
+# makes shallow copies:
+[a] * 2 # [[1,2],[1,2]]
+
 a[0] # 1
+
 a[-1] # 2
+
 len(a) # 2
+
+
 b.index(3) # 0
 b.count(3) # 2
 ```
 
 #### Slicing
 
-Basic slicing:
+Slicing in Ruby is typically done with Range objects, which have inclusive and exclusive forms relative to the end-value as follows: 0..2 contains [0,1,2] and 0...2 contains [0,1]. Basic slicing:
 
 ```ruby
-c = [1,2,3,4]
-c[1..2] # [2,3] (.. includes end value)
-c[1...3] # [2,3] (... excludes end value)
-c[1,2] # [2,3] (the second argument is slice length)
-c[-3..-2] # [2,3] (.. includes end value)
-c[-3...-1] # [2,3] (... excludes end value)
-c[-3,2] # [2,3] (the second argument is slice length)
+vals = [a,b,c,d]
+vals[1..2] # [b,c]
+vals[1...3] # [b,c]
+vals[-3..-2] # [b,c]
+vals[-3...-1] # [b,c]
+
+# alternate form:
+# array[start_index, length]
+vals[1,2] # [b,c]
+vals[-3,2] # [b,c]
 ```
 ```python
-c = [1,2,3,4]
-c[1:3] # [2,3]
+vals = [a,b,c,d]
+vals[1:3] # [2,3]
 
-
-c[-3:-1] # [2,3]
+vals[-3:-1] # [2,3]
 ```
 
 Slicing to/from the end of list:
 
 ```ruby
-c[1..c.size] # [2,3,4]
-c[1,c.size] # [2,3,4]
-c.last(c.size - 1) # [2,3,4]
-c[0..3] # [1,2,3]
-c[0,3] # [1,2,3]
-c.first(3) # [1,2,3]
+vals = [a,b,c,d]
+vals[2...vals.size] # [c,d]
+vals[2,vals.size] # [c,d]
+vals.last(vals.size - 2) # [c,d]
+vals[0...2] # [a,b]
+vals[0,2] # [a,b]
+vals.first(2) # [a,b]
 ```
 ```python
-c[1:] # [2,3,4]
+vals = [a,b,c,d]
+vals[2:] # [c,d]
 
 
-c[:3] # [1,2,3]
+vals[:2] # [a,b]
 ```
 
-Slicing outside the list ([more discussion on the Ruby snippet][slicing]):
-
-```ruby
-c[4...7] # []
-c[5...7] # nil
-```
-```python
-c[4:7] # []
-c[5:7] # []
-```
-
-Note: For list comprehensions and iterating, see [Blocks](#blocks)
+Note: For list comprehensions and iterating, see [Blocks](#blocks).
 
 ### Hashes/Dicts
 
-A mapping from keys to values is called a `Hash` in Ruby and a `dict` in Python.
+A mapping from keys to values is called a Hash in Ruby and a dict in Python.
 
 #### Instantiation
 
@@ -243,7 +259,7 @@ To make hashes/dicts:
 
 ```ruby
 a = {}
-b = {'x' => 1, 2 => 2, Fixnum => 3}
+b = {'x'=>1, 2=>2, Fixnum=>3}
 c = Hash.new
 d = Hash[[['x',1],[2,2]]]
 e = Hash.new { |hash,key| hash[key] = [] }
@@ -262,9 +278,10 @@ e = defaultdict(list) # from collections module
 Some simple operations available on hashes:
 
 ```ruby
-a = {'x' => 2}
+a = {'x'=>2}
 a['y'] = 5
 a.has_key?('y') # true (same as key? and include?)
+a.key?('y') # true
 a.delete('y') # 5
 a.include?('y') # false
 a.keys # ['x']
@@ -275,6 +292,7 @@ a.to_a # [['x',2]]
 a = {'x':2}
 a['y'] = 5
 'y' in a # True
+
 del a['y']
 'y' not in a # True
 a.keys() # ['x']
@@ -284,15 +302,15 @@ a.items() # [('x',2)]
 
 ### Symbols
 
-A unique piece of Ruby that you quickly run into is symbols. Symbols are [kind of like immutable strings][symbols1] indicated by a prepended colon (e.g. `:vehicle`) that have performance advantages over regular, mutable strings in Ruby. Symbols are [typically used for naming things][symbols2] like hash keys and for referencing variables, method names, etc.
+A unique piece of Ruby that you quickly run into is symbols. Symbols are [kind of like immutable strings][symbols1] indicated by a prepended colon (e.g. :vehicle) that have performance advantages over regular, mutable strings in Ruby. Symbols are [typically used for naming things][symbols2] like hash keys and for referencing variables, method names, etc.
 
 Some symbol operations:
 
 ```ruby
-:hey.to_s # "hey"
-"hey".intern # :hey (same as "hey".to_sym)
-:a == :a # true
-:a.object_id == :a.object_id # true
+:foo.to_s # "foo"
+"foo".intern # :foo (same as "foo".to_sym)
+:foo == :foo # true
+:foo.object_id == :foo.object_id # true
 ```
 
 ### Control Flow
@@ -352,23 +370,23 @@ for i in [0,1,2]:
 While-loop:
 
 ```ruby
-while !obj.nil?
-  puts obj
+while true
+  # do stuff
 end
-until obj.nil?
-  puts obj
+until false
+  # do stuff
 end
 ```
 ```python
-while obj is not None:
-  print obj
+while True:
+  # do stuff
 ```
 
-There's a lot more that could be said here, about and break/next, [case][case], [and/or][rubyandor], [redo and retry][reflow], [exception-handling][exceptions], and more.
+There's a lot more that could be said here, about break/next, [case][case], [and/or][rubyandor], [redo and retry][reflow], [exception-handling][exceptions], and more.
 
 ### Methods/Functions
 
-A named chunk of code is a Method in Ruby and a function in Python:
+A named chunk of code is a method in Ruby and a function in Python:
 
 ```ruby
 def myfunc
@@ -380,7 +398,7 @@ def myfunc():
   print "Hello!"
 ```
 
-The `return` keyword is optional in Ruby; if it's omitted then the value of the final expression in the method is returned:
+The return keyword is optional in Ruby; if it's omitted then the value of the final expression in the method is returned:
 
 ```ruby
 def myfunc
@@ -389,10 +407,10 @@ end
 myfunc # 2
 
 def myfunc2
-  return "hey"
+  return "foo"
   "nope"
 end
-myfunc # "hey"
+myfunc # "foo"
 ```
 ```python
 def myfunc():
@@ -401,9 +419,9 @@ def myfunc():
 myfunc # None
 
 def myfunc2():
-  return "hey"
+  return "foo"
 
-myfunc # "hey"
+myfunc # "foo"
 ```
 
 Ruby methods and Python functions can accommodate optional parameters:
@@ -442,27 +460,27 @@ Ruby allows key-value pairs as arguments and both languages can collect extra ke
 
 ```ruby
 def myfunc(req, optional=2, *args,
-           named: 'value', **options)
+           foo: 'bar', **options)
   p args
-  p named
+  p foo
   p options
 end
-myfunc(1, 2, 3, hey:'there', hi:[1])
+myfunc(1, 2, 3, hey:'there', hi:3)
 # [3]
-# "value"
-# {:hey=>"there", :hi=>[1]}
+# "bar"
+# {:hey=>"there", :hi=>3}
 ```
 ```python
 def myfunc(req, optional=2, *args, **kwargs):
   print args
   print kwargs
 
-myfunc(1,2,3, hey='there', hi=[1])
+myfunc(1,2,3, hey='there', hi=3)
 # (3,)
-# {'hi': [1], 'hey': 'there'}
+# {'hi': 3, 'hey': 'there'}
 ```
 
-Slightly related to methods/functions but worth mentioning: [the * (splat) and ** (double splat) operators in both languages can be used to unpack arrays and dictionaries (e.g. into method calls or a list of variables)][splat].
+Only slightly related to methods/functions but worth mentioning: [the * (splat) and ** (double splat) operators in both languages can be used to unpack arrays and dictionaries (e.g. into method calls or a list of variables)][splat].
 
 
 ### Blocks, Procs, Lambdas<a id="blocks"></a>
@@ -755,7 +773,6 @@ I'll happily respond to any comments, corrections, or other responses on twitter
 
 [repl]: http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop
 [rubyandor]: http://devblog.avdi.org/2010/08/02/using-and-and-or-in-ruby/
-[slicing]: http://stackoverflow.com/questions/3568222/array-slicing-in-ruby-looking-for-explanation-for-illogical-behaviour-taken-fr
 [symbols1]: http://www.robertsosinski.com/2009/01/11/the-difference-between-ruby-symbols-and-strings/
 [symbols2]: http://stackoverflow.com/questions/11447537/using-ruby-symbols
 [case]: http://stackoverflow.com/questions/948135/how-can-i-write-a-switch-statement-in-ruby
