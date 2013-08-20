@@ -16,7 +16,10 @@
           body { font-size: 20px; }
           code, pre { font-size: 14px; }
           a small { font-size: 14px; }
+          header h1 span { display: block; }
+          header h1 small { margin-top: 0; }
           header p { margin-bottom: 4px; }
+          header p.view span { display: block; }
           header p.view small { padding-top: 2px; }
           footer ul { list-style: none; padding-left: 0; }
           footer a [class^="icon-"] { display: inline-block; width: 20px; }
@@ -37,20 +40,17 @@
         <!-- Some format/style from atmos/atmos.github.io -->
         <div class="wrapper">
           <header>
-            <h1><a href="/">{{ site.name }}</a></h1>
-            <p class="view"><a href="/projects">Projects <small>Things I've built</small></a></p>
-            <p class="view"><a href="/thoughts">Thoughts <small>What I'm thinking about</small></a></p>
-            <p class="view"><a href="/guides">Guides <small>Code-related tutorials and guides</small></a></p>
-            <p class="view"><a href="/hobbies">Hobbies <small>Gaming, sports, cooking, etc.</small></a></p>
+            <h1><a href="/"><span>Greg Schafer</span><small>Software Developer</small><small>Colorado, USA</small></a></h1>
+            <p class="view"><a href="/projects"><span>Projects</span><small>Things I've built</small></a></p>
+            <p class="view"><a href="/thoughts"><span>Thoughts</span><small>What I'm thinking about</small></a></p>
+            <p class="view"><a href="/guides"><span>Guides</span><small>Code-related tutorials and guides</small></a></p>
+            <p class="view"><a href="/hobbies"><span>Hobbies</span><small>Gaming, sports, cooking, etc.</small></a></p>
           </header>
           <section>
             {{ content }}
           </section>
           <footer>
             <ul>
-              <li>Greg Schafer</li>
-              <li>Software Developer</li>
-              <li>Colorado/Nebraska, USA</li>
               <li><a href="mailto:grschafer@gmail.com"><i class="icon-envelope"></i> Email</a></li>
               <li><a href="https://github.com/grschafer" target="tab"><i class="icon-github"></i> GitHub</a></li>
               <li><a href="https://twitter.com/grschafer" target="tab"><i class="icon-twitter"></i> Twitter</a></li>

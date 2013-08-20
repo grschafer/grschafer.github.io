@@ -11,7 +11,7 @@ categories: guides
   float: left;
   width: 50%;
 }
-p, h1, h2, h3, h4, h5 {
+section p, section h1, section h2, section h3, section h4, section h5 {
   clear: both;
 }
 </style>
