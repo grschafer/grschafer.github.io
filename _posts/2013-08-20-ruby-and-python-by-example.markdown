@@ -16,9 +16,9 @@ section p, section h1, section h2, section h3, section h4, section h5 {
 }
 </style>
 
-After exploring Ruby briefly in a programming languages class last fall, I've finally gotten back around to playing with the language more. Most of my recent experience is in Python, so I've had a lot of fun comparing the two languages and their idioms. This list is a personal reference of sorts comparing how the same tasks can be solved in both languages.
+After exploring Ruby briefly in a programming languages class last fall, I've finally gotten back around to playing with the language more. Most of my recent experience is in Python, so I've had a lot of fun comparing the two languages and their idioms. This list is a personal reference comparing how the same tasks can be solved in both languages.
 
-In the rest of the post, *Ruby snippets are on the left* and *Python snippets on the right*. In the snippets, *lines of code that correspond between the two languages are aligned*, as possible. These examples were tested with Ruby 2.0.0 and Python 2.7.3.
+In the rest of the post, *Ruby snippets are on the left* and *Python snippets on the right*. In the snippets, *lines of code that correspond between the two languages are aligned*, when possible. These examples were tested with Ruby 2.0.0 and Python 2.7.3.
 
 ```ruby
 # Ruby snippets on the left
@@ -231,9 +231,9 @@ vals[-3,2] # [b,c]
 ```
 ```python
 vals = [a,b,c,d]
-vals[1:3] # [2,3]
+vals[1:3] # [b,c]
 
-vals[-3:-1] # [2,3]
+vals[-3:-1] # [b,c]
 ```
 
 Slicing to/from the end of list:
@@ -260,7 +260,7 @@ Note: For list comprehensions and iterating, see [Blocks](#blocks).
 
 ### Hashes/Dicts
 
-A mapping from keys to values is called a Hash in Ruby and a dict in Python.
+A mapping from keys to values is called a `Hash` in Ruby and a `dict`` in Python.
 
 
 #### Instantiation
@@ -291,10 +291,10 @@ Some simple operations available on hashes:
 ```ruby
 a = {'x'=>2}
 a['y'] = 5
-a.has_key?('y') # true (same as key? and include?)
+a.has_key?('y') # true
 a.key?('y') # true
 a.delete('y') # 5
-a.include?('y') # false
+!a.include?('y') # true
 a.keys # ['x']
 a.values # [2]
 a.to_a # [['x',2]]
@@ -320,7 +320,8 @@ Some symbol operations:
 
 ```ruby
 :foo.to_s # "foo"
-"foo".intern # :foo (same as "foo".to_sym)
+"foo".intern # :foo
+"foo".to_sym # :foo
 :foo == :foo # true
 :foo.object_id == :foo.object_id # true
 ```
@@ -375,8 +376,6 @@ end
 ```
 ```python
 for i in range(3):
-  print i
-for i in [0,1,2]:
   print i
 ```
 
@@ -465,7 +464,7 @@ myfunc(1, 2, 3, 4, 5) # [3,4,5]
 ```
 ```python
 def myfunc(x, y=2, *args):
-  args
+  return args
 
 myfunc(1, 2, 3, 4, 5) # (3,4,5)
 ```
@@ -558,11 +557,11 @@ def foreach(arr, &block)
   end
 end
 
-foreach([1,2,3]) { |x| puts x**2 }
+foreach([1,2,3]) { |x| puts x }
 # block class: Proc
 # 1
-# 4
-# 9
+# 2
+# 3
 ```
 ```python
 def foreach(arr, myfunc):
@@ -640,17 +639,30 @@ Iterating:
 
 ```ruby
 [1,2,3].each { |x| puts x }
+# 1
+# 2
+# 3
 
 [:a,:b,:c].each_with_index do
-  |letter, index| puts "#{index} #{letter}"
+  |letter, index| puts "#{index} #{letter.inspect}"
 end
+# 0 :a
+# 1 :b
+# 2 :c
 
 ```
 ```python
 for x in [1,2,3]:
   print x
+# 1
+# 2
+# 3
+
 for index, letter in enumerate(['a','b','c']):
   print index, letter
+# 0 a
+# 1 b
+# 2 c
 ```
 
 Mapping:
@@ -660,6 +672,7 @@ a = [1,2,3]
 a.map { |x| x**2 } # [1,4,9]
 # map returns a new array
 # use map! to mutate the original
+
 a.collect { |x| x**2 } # [1,4,9]
 # collect is an alias of map
 ```
@@ -673,6 +686,7 @@ Reducing:
 
 ```ruby
 a = [1,2,3]
+
 a.reduce(:+) # 6 (uses :+ method on Fixnum)
 a.reduce(10, :+) # 16 (initial value of 10)
 a.reduce(10) { |sum,x| sum + x } # 16
@@ -680,7 +694,9 @@ a.reduce(10) { |sum,x| sum + x } # 16
 ```
 ```python
 a = [1,2,3]
-reduce(lambda sum,x: sum + x, a) # 6
+import operator
+reduce(operator.add, a) # 6
+reduce(operator.add, a, 10) # 16
 reduce(lambda sum,x: sum + x, a, 10) # 16
 # unfortunately there's no pleasant way to
 # reduce with a comprehension
@@ -695,24 +711,26 @@ a.find_all { |x| x.odd? } # [1,3]
 ```
 ```python
 a = [1,2,3]
-[x for x in a if x % 2 == 1] # [1,3]
-filter(lambda x: x % 2 == 0, a) # [2]
+[x for x in a if x % 2 == 0] # [2]
+filter(lambda x: x % 2 == 1, a) # [1,3]
 ```
 
 Say you want to find the sum of the cubes of the odd numbers between 0 and 20:
 
 ```ruby
 # using \ to write across multiple lines
+
 (0...20).select { |x| x.odd? } \
-        .collect { |x| x**3 } \
-        .inject(0, :+)
+           .collect { |x| x**3 } \
+           .inject(0, :+)
 # 19900
 ```
 ```python
 # using \ to write across multiple lines
-reduce(lambda s,x: s + x, \
-       [x**3 for x in range(20) \
-       if x % 2 == 1], 0)
+import operator
+reduce(operator.add, \
+          [x**3 for x in range(20) \
+          if x % 2 == 1], 0)
 # 19900
 ```
 
@@ -773,7 +791,7 @@ amy = Person('Amy')
 Person.get_count() # 2
 ```
 
-OOP concepts and tools extend far beyond this example, and I may cover topics such as inheritance, mixins, metaprogramming, modules, namespaces, and more in the future. I'll wrap up this post here though, as it is already longer than I anticipated!  =)
+OOP concepts and tools extend far beyond this example, and hopefully I can cover topics such as inheritance, mixins, metaprogramming, modules, namespaces, and more in the future. I'll wrap up this post here though, as it is already longer than I anticipated!  =)
 
 
 ### Documentation
@@ -788,7 +806,7 @@ Where to find documentation:
 
 ### Attribution
 
-Thanks to editors!
+Thanks to my housemates for editing!
 
 
 I'll happily respond to any comments, corrections, or other responses on twitter, email, or GitHub!

@@ -2,4 +2,3 @@ name: grschafer.com
 markdown: redcarpet
 pygments: true
 permalink: pretty
-show_drafts: true
