@@ -8,6 +8,8 @@ categories: guides
 
 I recently became interested in stats and analysis of Dota 2, partially fueled by the stats overlays presented during streamed broadcasts of [The International 3][ti3], a Dota 2 tournament with a prize pool of nearly $2.9 million USD. To get started with making a stats website (such as [datdota][datdota] or [dotabuff][dotabuff]), you need to use the Steam WebAPI and (optionally) allow users to login to your website using Steam OpenID. This guide covers the process I followed in getting started using Steam OpenID and the Steam WebAPI with Ruby on Rails, followed with deployment to Heroku.
 
+You can find this walkthrough's resulting repo on GitHub: <https://github.com/grschafer/dota2rails>
+
 
 ## Getting an API Key
 
