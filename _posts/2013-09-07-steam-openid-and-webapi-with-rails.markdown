@@ -256,6 +256,7 @@ These instructions mostly follow [Heroku's Getting Started with Rails4 article][
 5. Heroku expects deployed apps to use a database, which requires a bunch of extra configuration, so let's just disable all of that by removing ActiveRecord from our app. Go to `config/application.rb` and change the code from `require 'rails/all'` to the following:
 
     ```ruby
+    # config/application.rb
     …
     #require 'rails/all'
     require "action_controller/railtie"
@@ -268,6 +269,22 @@ These instructions mostly follow [Heroku's Getting Started with Rails4 article][
 
     ```bash
     $ bundle install
+    ```
+
+7. Oh no! If you try running it locally now, you probably will get an error about an undefined method for action\_mailer. ActionMailer is a part of the `rails/all` that we just removed (because we don't need it), but it turns out there are still configuration settings that reference action\_mailer and active\_record. Go to `config/environments/development.rb` and comment out the offending lines:
+
+    ```ruby
+    # config/environments/development.rb
+    …
+    # Don't care if the mailer can't send.                                        
+    #config.action_mailer.raise_delivery_errors = false                           
+                                                                                  
+    # Print deprecation notices to the Rails logger.                              
+    config.active_support.deprecation = :log                                      
+                                                                                  
+    # Raise an error on page load if there are pending migrations                 
+    #config.active_record.migration_error = :page_load 
+    …
     ```
 
 7. Make a git repo at the root of your Rails site (for me it's at `/home/greg/repos/dota2rails`) if you haven't already and commit all of your changes:
