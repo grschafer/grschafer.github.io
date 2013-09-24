@@ -7,6 +7,12 @@ categories: projects
 
 This post will document and follow overall progress on my current (Autumn 2013) Rails project.
 
+Backend (Python) Repo: <https://github.com/grschafer/alacrity>
+
+Frontend (Rails) Repo: <https://github.com/grschafer/dota2rails>
+
+Deployed URL: not deployed yet
+
 ### Project Motivation
 
 After graduating university and traveling for a while, I've opted to wait a few months before diving into the job search and start of my career. This "gap year"-esque time has been a great opportunity to hang out with friends and pursue personal interests/projects such as this one.
@@ -26,6 +32,7 @@ A dump of the textfile where I'm tracking/updating my schedule:
 ```
 schedule
 	every sunday: shell/vim/tooling improvement
+	https://github.com/grschafer/dotfiles
 
 by Sept 21
 	completed list of individual-game components
