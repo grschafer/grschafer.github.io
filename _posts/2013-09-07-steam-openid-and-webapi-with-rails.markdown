@@ -11,7 +11,7 @@ I recently became interested in stats and analysis of Dota 2, partially fueled b
 You can find this walkthrough's resulting repo on GitHub: <https://github.com/grschafer/dota2rails>
 
 
-## Getting an API Key
+### Getting an API Key
 
 To use Steam OpenID or the Steam WebAPI, you'll need to get an API Key.
 
@@ -20,11 +20,11 @@ To use Steam OpenID or the Steam WebAPI, you'll need to get an API Key.
 2. As mentioned in above forum post, get an API key from <http://steamcommunity.com/dev/apikey>.
 
 
-## Making the Rails Site
+### Making the Rails Site
 
 For an introduction to making a first Rails app, check out [this tutorial][railsgs]. I have included all of the necessary steps below, but in less detail than the afore-linked tutorial.
 
-1. Start a new Rails site (I called mine dota2rails). The '$' in code snippets indicates that that line is entered at the command prompt.
+1. Start a new Rails site (I called mine dota2rails). The '$' in code snippets indicates that that line is entered at the command prompt. *Edit*: Making the new project with the `--skip-active-record` switch avoids some of the database/config-related errors that I manually fix in other steps throughout this walkthrough.
 
     ```bash
     $ rails new dota2rails
@@ -218,7 +218,7 @@ For an introduction to making a first Rails app, check out [this tutorial][rails
 Pardon the mess for converting from UNIX timestamp to date. That's the basics of getting data from the Steam WebAPI, though, and there are many directions this example could be taken from here (match detail pages, stats across multiple matches, and many of the other features provided by existing stats websites such as [dotabuff][dotabuff]). But now, on to deployment!
 
 
-## Deploying to Heroku
+### Deploying to Heroku
 
 These instructions mostly follow [Heroku's Getting Started with Rails4 article][herokugs], but are more abbreviated to hopefully get up and running even faster!
 
