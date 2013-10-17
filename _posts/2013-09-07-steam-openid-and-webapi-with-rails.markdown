@@ -171,28 +171,30 @@ For an introduction to making a first Rails app, check out [this tutorial][rails
 10. Great! Now if you are logged in, it will display your Steam username, profile image, and SteamID. That's the groundwork for using Steam OpenID, but I'm going to continue a bit further and show fetching and displaying a list of the logged-in user's recent Dota 2 matches from the [Steam WebAPI][steamwebapi]. The data provided by the Steam WebAPI for Dota 2 match history looks like [this bit of json][jsonmh]. To fetch match history, we'll edit the welcome#index action to call the Steam WebAPI:
 
     ```ruby
-    class WelcomeController < ApplicationController                                 
-      # auth callback POST comes from Steam so we can't attach CSRF token                                 
-      skip_before_filter :verify_authenticity_token, :only => :auth_callback        
-                                                                                    
-      def index                                                                                           
-        @matchlist = []                                                                                   
-        if session.key? :current_user                                                                     
+    class WelcomeController < ApplicationController
+      # auth callback POST comes from Steam so we can't attach CSRF token
+      skip_before_filter :verify_authenticity_token, :only => :auth_callback
+
+      def index
+        @matchlist = []
+        if session.key? :current_user
           url = URI.parse("https://api.steampowered.com/IDOTA2Match_570/GetMatchHistory/v001/?key=#{ENV['STEAM_WEB_API_KEY']}&account_id=#{session[:current_user][:uid]}")
-          res = Net::HTTP::get(url)                                                                       
-          @matchlist = JSON.load(res)['result']['matches'] || []                                          
-        end                                                                                               
-      end                                                                                                 
-                                                                                                          
-      def auth_callback                                                                                   
-        auth = request.env['omniauth.auth']                                                               
-        session[:current_user] = { :nickname => auth.info['nickname'],                                    
-                                              :image => auth.info['image'],                                         
-                                              :uid => auth.uid }                                                    
-        redirect_to root_url                                                                              
-      end                                                                                                 
+          res = Net::HTTP::get(url)
+          @matchlist = JSON.load(res)['result']['matches'] || []
+        end
+      end
+
+      def auth_callback
+        auth = request.env['omniauth.auth']
+        session[:current_user] = { :nickname => auth.info['nickname'],
+                                              :image => auth.info['image'],
+                                              :uid => auth.uid }
+        redirect_to root_url
+      end
     end
     ```
+
+    **Edit**: If you get a "connection closed by remote host" error when visiting the index page (because of the Net::HTTP::get call), try changing the url from https to http to see if it then works. (However, you probably won't want to leave it as http, otherwise people that sniff your traffic can see your Steam API Key.) If you do get this error, let me know if you know what's causing it! I haven't been able to reproduce it in my environment (Ubuntu 12.04, Ruby 2.0.0, Rails 4.0.0).
 
 11. The `@matchlist` instance variable from welcome#index is available in the corresponding view, where we need to list the matches:
 
