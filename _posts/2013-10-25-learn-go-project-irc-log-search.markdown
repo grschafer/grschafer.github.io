@@ -12,7 +12,7 @@ Visit the repo at <https://github.com/grschafer/quassel-search-go> and follow th
 
 *What*
 
-I've recently gotten back into sitting on IRC channels related to software I'm using/making as another avenue for learning. I set up a [Quassel Core](http://quassel-irc.org/) which has been great for not missing any messages and connecting from multiple computers, but, as a friend pointed out, searching the backlog of messages seems pretty inefficient. (You have to continuously scroll up in the correct channel to fetch past messages from the core, then ctrl+f within your window to find text.) My friend's observation, plus my attendance of a recent Go talk, inspired me to take a break from my ongoing [Rails/Dota2 project]({% post_url 2013-09-24-rails-project-status %}) to learn Go and make a tool for searching Quassel logs more quickly.
+I've recently gotten back into sitting on IRC channels related to software I'm using/making as another avenue for learning. I set up a [Quassel Core](http://quassel-irc.org/) which has been great for not missing any messages and connecting from multiple computers, but, as a friend pointed out, searching the backlog of messages seems pretty inefficient. (You have to continuously scroll up in the correct channel to fetch past messages from the core, then ctrl+f within your window to find text.) My friend's observation, plus my attendance of a recent Go talk, inspired me to take a break from my ongoing [Rails/Dota2 project]({% post_url 2014-01-23-dotarecap-overview %}) to learn Go and make a tool for searching Quassel logs more quickly.
 
 [![Results page][screenie]][screenie]
 
