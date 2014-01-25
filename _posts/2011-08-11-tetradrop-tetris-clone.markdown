@@ -3,6 +3,8 @@ layout:     post
 title:      Tetradrop Tetris Clone
 date:       2011-08-11 12:00:00
 categories: projects
+thumb: "/assets/images/tetradrop/2_thumb.png"
+tags: python pygame numpy
 ---
 
 [![Early game][thumb1]][img1] [![Mid game][thumb2]][img2] [![End game (loss)][thumb3]][img3]

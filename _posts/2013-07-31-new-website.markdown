@@ -3,6 +3,7 @@ layout:     post
 title:      New Website!
 date:       2013-07-31 15:00:00
 categories: thoughts
+thumb: "/assets/images/jekyll_logo.png"
 ---
 
 Welcome to my new home on the internet! My site on Google AppEngine was a few

@@ -3,6 +3,8 @@ layout:     post
 title:      "Processing\x3a Spinmaze"
 date:       2011-01-24 12:00:00
 categories: projects
+thumb: "/assets/images/spinmaze/3_thumb.png"
+tags: processing a* graphs
 ---
 
 <iframe width="668" height="720" scrolling="no" frameborder="0" src="http://www.openprocessing.org/sketch/46412/embed/?width=640&height=640&border=true"></iframe>

@@ -3,6 +3,8 @@ layout:     post
 title:      "Learn Go Project\x3a IRC Log Search"
 date:       2013-10-25 12:00:00
 categories: projects
+thumb: "/assets/images/quassel_search/results_page.png"
+tags: golang postgresql sqlite3
 ---
 
 *How to Use*

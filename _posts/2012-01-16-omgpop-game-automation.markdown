@@ -3,6 +3,8 @@ layout:     post
 title:      Omgpop Game Automation
 date:       2012-01-16 12:00:00
 categories: projects
+thumb: "/assets/images/omgpop/1_thumb.png"
+tags: python scikit-learn numpy autohotkey ocr
 ---
 
 *What*

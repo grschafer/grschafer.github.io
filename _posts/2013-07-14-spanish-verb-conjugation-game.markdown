@@ -3,6 +3,8 @@ layout:     post
 title:      Spanish Verb Conjugation Game
 date:       2013-07-14 23:00:00
 categories: projects
+thumb: "/assets/images/cohete_conjugador/2_thumb.png"
+tags: flash actionscript
 ---
 
 <div id="flashContent">

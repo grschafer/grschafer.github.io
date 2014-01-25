@@ -3,6 +3,8 @@ layout:     post
 title:      "DataViz\x3a Toy Story Blended"
 date:       2013-02-15 12:00:00
 categories: projects
+thumb: "/assets/images/toystory/1_thumb.png"
+tags: python numpy ffmpeg
 ---
 
 *What*

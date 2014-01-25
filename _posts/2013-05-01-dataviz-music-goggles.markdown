@@ -3,6 +3,8 @@ layout:     post
 title:      "DataViz\x3a Music Goggles"
 date:       2013-05-01 12:00:00
 categories: projects
+thumb: "/assets/images/music_goggles/1_thumb.png"
+tags: [raspberry pi, python, pygame, aubio]
 ---
 
 *What*

@@ -3,6 +3,7 @@ layout:     post
 title:      Ruby and Python by Example
 date:       2013-08-20 16:12:01
 categories: guides
+thumb: "/assets/images/python_ruby_logos.jpg"
 ---
 
 <style>

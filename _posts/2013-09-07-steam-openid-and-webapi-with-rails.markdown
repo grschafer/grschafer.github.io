@@ -3,6 +3,7 @@ layout:     post
 title:      Steam OpenID and WebAPI with Rails
 date:       2013-09-07 16:12:01
 categories: guides
+thumb: "/assets/images/steam_logo.png"
 ---
 
 

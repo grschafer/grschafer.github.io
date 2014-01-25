@@ -3,6 +3,8 @@ layout:     post
 title:      Machine Learning Bejeweled
 date:       2012-12-10 12:00:00
 categories: projects
+thumb: "/assets/images/bejeweled/1_thumb.png"
+tags: python pybrain ml
 ---
 
 *Source*

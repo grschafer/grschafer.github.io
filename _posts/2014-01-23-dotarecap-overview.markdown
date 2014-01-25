@@ -3,6 +3,8 @@ layout:     post
 title:      DotaRecap Overview
 date:       2014-01-23 15:00:00
 categories: projects
+thumb: "/assets/images/dotarecap/2_thumb.png"
+tags: rails d3.js celery rabbitmq ansible python mongodb s3 vagrant nginx unicorn sass coffeescript dota2 skadi tarrasque
 ---
 
 
