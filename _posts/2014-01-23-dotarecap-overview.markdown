@@ -8,11 +8,15 @@ categories: projects
 
 Deployed URL: <http://www.dotarecap.com>
 
+### Screenshots
+
+[![Initial state][thumb1]][img1] [![Victory + debug][thumb2]][img2] [![Big maze + enemies][thumb3]][img3]
+
 ### Project Motivation
 
 After graduating university and traveling for a while, I opted to wait a few months before diving into the job search and start of my career. This "gap year"-esque period has been a great opportunity to spend time with friends and pursue personal interests/projects such as this one.
 
-I started this project primarily to learn Rails and its ecosystem, as well as various other tools (the full list is under the Project Description). I centered the project around the video game [Dota 2] to help me sustain interest/focus/motivation and because this area of development (analyzing game replays) is relatively new -- much of the data in game replays is undocumented and must be discovered and understood through exploration. For example, [here are the protobufs] present in replay files and, although all the fields are labeled, it is difficult in many cases to tell what they correspond to in the game, especially when fields are re-used for different events and messages.
+I started this project primarily to learn Rails and its ecosystem, as well as various other tools (the <a href="#techlist">full list is under the Project Description</a>). I centered the project around the video game [Dota 2] to help me sustain interest/focus/motivation and because this area of development (analyzing game replays) is relatively new -- much of the data in game replays is undocumented and must be discovered and understood through exploration. For example, [here are the protobufs] present in replay files and, although all the fields are labeled, it is difficult in many cases to tell what they correspond to in the game, especially when fields are re-used for different events and messages.
 
 
 ### Project Description
@@ -25,7 +29,7 @@ DotaRecap's functionality is contained within 3 repos:
 * [alacrity]: Contains replay parsers and [celery] tasks in python. The parsers are built on onethirtyfive's [skadi] and bluepeppers's [tarrasque] libraries, which do the hard work of exposing the data within Dota 2's binary replay files. The celery tasks are responsible for updating league and match lists in mongodb, fetching data from the [steam webapi], downloading matches, running the parsers on matches, etc.
 * [matchurls]: Contains a node server for fetching Dota 2 replay download urls. This is a barely-modified fork of [the original, written by RJackson].
 
-These repos use and are supported by a variety of tools that I enjoyed learning, including: [coffeescript], [sass], [d3.js], [celery] backed by [rabbitmq], [mongodb], [aws s3], [nginx], [unicorn], [vagrant], and [ansible]). Regarding the last two (vagrant and ansible), there is a 4th repo ([dota2rails-deploy]) that includes the other 3 as submodules (so I can keep their compatible versions in sync) and that I use to deploy the whole site with minimal manual work.
+<a name="techlist"></a>These repos use and are supported by a variety of tools that I enjoyed learning, including: [coffeescript], [sass], [d3.js], [celery] backed by [rabbitmq], [mongodb], [aws s3], [nginx], [unicorn], [vagrant], and [ansible]). Regarding the last two (vagrant and ansible), there is a 4th repo ([dota2rails-deploy]) that includes the other 3 as submodules (so I can keep their compatible versions in sync) and that I use to deploy the whole site with minimal manual work.
 
 
 ### Project Architecture
@@ -50,7 +54,7 @@ Some more aspects of the design that contribute to its scalability and distribut
 
 Despite how far this project has come, my todo list for it only seems to keep growing. Here are some of the changes I would like to tackle:
 
-* Reach the target architecture (use [nginx] or [haproxy] to load-balance among multiple [unicorn] servers that share a [memcached] cache, use a CDN for all assets, put mongodb and rabbitmq on separate boxes).
+* Reach the target architecture (load-balance among multiple [unicorn] servers that share a [memcached] cache, use a CDN for all assets, put mongodb and rabbitmq on separate boxes).
 * Port replay parsers from [skadi]/[tarrasque], which were recently deprecated, to [smoke].
 * Consider switching from [mongodb] to an rdbms (with ActiveRecord?), because the data model is stabilizing and the data is inherently relational (leagues have many matches, which have many players).
 * Connect the rails app to rabbitmq (instead of via mongodb and polling/cron as it currently is). This could also enable task status and ETA displays on the website.
@@ -99,3 +103,9 @@ Despite how far this project has come, my todo list for it only seems to keep gr
 [leucos]: https://github.com/leucos/ansible-rbenv-playbook
 [owainlewis]: https://github.com/owainlewis/vagrant-ansible-rails
 [DotaRecap.com]: http://www.dotarecap.com
+[thumb1]: /assets/images/dotarecap/1_thumb.png "Index page"
+[thumb2]: /assets/images/dotarecap/2_thumb.png "Match page"
+[thumb3]: /assets/images/dotarecap/3_thumb.png "Uploading a replay"
+[img1]: /assets/images/dotarecap/index.png
+[img2]: /assets/images/dotarecap/show.png
+[img3]: /assets/images/dotarecap/upload.png
