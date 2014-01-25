@@ -4,11 +4,14 @@ title: grschafer.com | Greg Schafer
 ---
 
 <div id="home">
-  <h1>All Posts</h1>
+  <h2>Hello!</h2>
+  <p>I'm Greg Schafer, a recent college grad and aspiring software developer looking to start my career in the Boulder/Denver area. Feel free to contact me via any of the methods in the bottom left!</p>
+  <p>If you're here to explore a bit, check out my most recent project, <a href="{% post_url 2014-01-23-dotarecap-overview %}">DotaRecap</a>, a website built on Rails, D3.js, Celery, RabbitMQ, MongoDB, and many more technologies. If you're in the mood for something interactive, try the <a href="{% post_url 2013-07-14-spanish-verb-conjugation-game %}">Spanish Verb Conjugation Game</a> or check out any of the Processing projects listed on the <a href="/projects">Projects index</a>. There's also a <a href="{% post_url 2012-12-10-machine-learning-bejeweled %}">machine learning project</a> and a <a href="{% post_url 2013-05-01-dataviz-music-goggles %}">hardware one</a>, if you're into those topics!</p>
+  <!--
   <ul class="posts">
     {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a> &raquo; <span>{{ post.categories | array_to_sentence_string }}</span></li>
-      <!--<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a> &raquo; <span>{% for cat in post.categories %}{{cat}} {% endfor %}</span></li>-->
     {% endfor %}
   </ul>
+  -->
 </div>
