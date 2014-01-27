@@ -4,7 +4,7 @@ title:      "Processing\x3a Perlin Landscape"
 date:       2010-10-28 12:00:00
 categories: projects
 thumb: "/assets/images/perlin/1_thumb.png"
-tags: processing
+tags: processing java
 ---
 
 <iframe width="668" height="560" scrolling="no" frameborder="0" src="http://www.openprocessing.org/sketch/46408/embed/?width=640&height=480&border=true"></iframe>

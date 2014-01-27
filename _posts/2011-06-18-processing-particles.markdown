@@ -4,7 +4,7 @@ title:      "Processing\x3a Particles"
 date:       2011-06-18 12:00:00
 categories: projects
 thumb: "/assets/images/particles/3_thumb.png"
-tags: processing
+tags: processing java
 ---
 
 <iframe width="668" height="720" scrolling="no" frameborder="0" src="http://www.openprocessing.org/sketch/46413/embed/?width=640&height=640&border=true"></iframe>
