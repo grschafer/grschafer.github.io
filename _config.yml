@@ -2,3 +2,5 @@ name: grschafer.com
 markdown: redcarpet
 pygments: true
 permalink: pretty
+plugins:
+  - jekyll-redirect-from
