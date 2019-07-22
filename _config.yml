@@ -1,6 +1,6 @@
 name: grschafer.com
 markdown: redcarpet
-pygments: true
+highlighter: rouge
 permalink: pretty
 plugins:
   - jekyll-redirect-from
